@@ -1,4 +1,4 @@
-package com.yyessenali.studentservice.controller;
+package com.yyessenali.schoolservice.controller;
 
 import java.util.List;
 
@@ -11,26 +11,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yyessenali.studentservice.model.Student;
-import com.yyessenali.studentservice.service.StudentService;
+import com.yyessenali.schoolservice.model.School;
+import com.yyessenali.schoolservice.service.SchoolService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v1/students")
+@RequestMapping("/api/v1/schools")
 @RequiredArgsConstructor
-public class StudentController {
+public class SchoolController {
 	
-	private final StudentService studentService;
+	private final SchoolService schoolService;
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public void save(@RequestBody Student student) {
-		studentService.saveStudent(student);
+	public void save(@RequestBody School school) {
+		schoolService.saveSchool(school);
 	}
 	
 	@GetMapping
-	public ResponseEntity<List<Student>> findAllStudents() {
-		return ResponseEntity.ok(studentService.findAllStudents());
+	public ResponseEntity<List<School>> findAllStudents() {
+		return ResponseEntity.ok(schoolService.findAllSchools());
 	}
 }
