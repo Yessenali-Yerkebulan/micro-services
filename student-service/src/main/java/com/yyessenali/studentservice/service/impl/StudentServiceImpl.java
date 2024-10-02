@@ -26,4 +26,9 @@ public class StudentServiceImpl implements StudentService{
 		return studentRepository.findAll();
 	}
 
+	@Override
+	public List<Student> findAllStudents(int schoolId) {
+		return studentRepository.findAllBySchoolId(schoolId);
+	}
+
 }
